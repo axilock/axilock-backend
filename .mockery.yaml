@@ -1,0 +1,26 @@
+quiet: true
+disable-version-string: true
+with-expecter: true
+mockname: "{{.InterfaceName}}"
+filename: "mock_{{.InterfaceName}}.go"
+outpkg: mocks
+dir: internal/mocks
+packages:
+  github.com/axilock/axilock-backend/internal/db/sqlc:
+    interfaces:
+      Store:
+  github.com/axilock/axilock-backend/internal/service/metadata:
+    interfaces:
+      MetaDataServiceInterface:
+  github.com/axilock/axilock-backend/internal/service/commitsvc:
+    interfaces:
+      CommitServiceInterface:
+  github.com/axilock/axilock-backend/internal/service/orgsvc:
+    interfaces:
+      OrgServiceInterface:
+  github.com/axilock/axilock-backend/internal/service/tokensvc:
+    interfaces:
+      TokenServiceInterface:
+  github.com/axilock/axilock-backend/internal/service/usersvc:
+    interfaces:
+      UserServiceInterface:
