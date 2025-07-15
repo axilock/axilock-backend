@@ -1,0 +1,4 @@
+-- name: CreateAuthTokenForUser :exec
+-- INSERT INTO tokens (
+--     token_type, token_value, "user", "org", version)
+-- VALUES ( $1, $2, $3, $4, $5 );
