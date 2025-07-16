@@ -46,7 +46,9 @@ services:
     environment:
       REDIS_ADDR: cache:6379
       DB_SOURCE: postgresql://admin:secure@db:5432/axilockdb?sslmode=disable
-  cache:
+      REDIS_PASS: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      
+  cache:  
     image: redis:7.4.1-alpine
     container_name: cache
     restart: always

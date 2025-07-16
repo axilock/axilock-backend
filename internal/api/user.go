@@ -221,6 +221,9 @@ func (s *Server) Inbound(ctx fiber.Ctx) error {
 	if err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).JSON(errResponse(err))
 	}
+	if s.config.DiscordWebhook == "" {
+		return ctx.Status(fiber.StatusInternalServerError).JSON(errResponse(err))
+	}
 	resp, err := http.Post(s.config.DiscordWebhook, "application/json", bytes.NewBuffer(jsonBody))
 	if err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).JSON(errResponse(err))

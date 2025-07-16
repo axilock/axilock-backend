@@ -9,19 +9,18 @@ import (
 )
 
 type Config struct {
-	DBDriver            string        `env:"DB_DRIVER"`
 	DBSource            string        `env:"DB_SOURCE"`
 	HTTPServerAddress   string        `env:"HTTP_SERVER_ADDRESS"`
 	GRPCServerAddress   string        `env:"GRPC_SERVER_ADDRESS"`
-	AccessTokenDuration time.Duration `env:"ACCESS_TIME_DURATION"`
-	RunningEnv          string        `env:"RUNNING_ENV"`
+	AccessTokenDuration time.Duration `env:"ACCESS_TIME_DURATION" envDefault:"1h"`
+	RunningEnv          string        `env:"RUNNING_ENV" envDefault:"dev"`
 	RedisAddr           string        `env:"REDIS_ADDR"`
 	RedisPassword       string        `env:"REDIS_PASS"`
 	GithubAppID         string        `env:"GITHUB_APP_ID"`
 	GithubAppPrivateKey string        `env:"GITHUB_PRIV_KEY,file" envDefault:"axilock.pem"`
 	GithubClientSecret  string        `env:"GITHUB_CLIENT_SECRET"`
 	GithubClientID      string        `env:"GITHUB_CLIENT_ID"`
-	DiscordWebhook      string        `env:"DISCORD_WEBHOOK"`
+	DiscordWebhook      string        `env:"DISCORD_WEBHOOK" envDefault:""`
 }
 
 func LoadConfig() (config Config, err error) {
