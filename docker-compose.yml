@@ -16,6 +16,7 @@ services:
       retries: 2
     volumes:
       - pgdata:/var/lib/postgresql/data
+  
   # migrate:
   #   image: migrate/migrate
   #   entrypoint: [
@@ -47,7 +48,18 @@ services:
       REDIS_ADDR: cache:6379
       DB_SOURCE: postgresql://admin:secure@db:5432/axilockdb?sslmode=disable
       REDIS_PASS: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
-      
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    restart: always
+    environment:
+      - API_BASE_URL=${API_BASE_URL:-}
+    ports:
+      - 80:80
+    volumes:
+      - ./frontend:/usr/share/nginx/html
   cache:  
     image: redis:7.4.1-alpine
     container_name: cache

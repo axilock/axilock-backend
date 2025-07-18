@@ -1,0 +1,148 @@
+h1,h2,h3,h4,p{
+    margin: 0;
+    padding: 0;
+}
+.nav-top .search-bar{
+    margin: 0 0 0 auto;
+}
+.search-bar{
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--lightgrey);
+    border-radius: 4px;
+    /* background-color: var(--gray); */
+    padding: 5px;
+}
+.search-bar input,
+.search-bar button{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: normal;
+}
+.banner{
+    display: flex;
+    flex-direction: column;
+}
+.box-container{
+    display: flex;
+    padding: 24px 0 0 0;
+}
+.box-container .border-box{
+    width: 100%;
+    max-width: 344px;   
+    border: 1px solid var(--lightgrey);
+    border-radius: 5px;
+    margin-left: 21px;
+    padding: 10px;
+}
+.box-container .border-box:first-child{
+    margin-left: 0;
+}
+.border-box .box-title{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+}
+.border-box .box-title img{
+    text-align: center;
+    margin-left: 5px;
+}
+.border-box .box-details{
+    font-size: 12px;
+    font-weight: normal;
+    color: var(--darkgray);
+    margin-top: 13px;
+}
+.border-box .box-details span{
+    font-size: 16px;
+}
+.progressbar{
+    height: 10px;
+    background-color: var(--lightgrey);
+    margin-top: 19px;
+    height: 6px;
+}
+.progress{
+    width: 80%;
+    background-color: var(--blue);
+    height: 6px;
+}
+.progress-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 5px;
+    color: var(--black);
+}
+.progress-details p{
+    position: relative;
+}
+.progress-details p::before{
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 50%;  
+    transform: translateX(-50%);
+    bottom: 0;
+    background-color: var(--orange);
+    height: 2px;
+}
+.progress-details span{
+    font-weight: 600;
+}
+
+/* Shiny blur animation */
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.blur-with-shine {
+  position: relative;
+  filter: blur(4px);
+  overflow: hidden;
+  opacity: 0.6; /* Add opacity to make blur more visible in light theme */
+}
+
+.blur-with-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shine 1.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add glow effect */
+}
+
+/* Specific styles for light theme blur */
+.light-theme-blur {
+  background-color: rgba(200, 200, 200, 0.3) !important; 
+  border: 1px solid rgba(180, 180, 180, 0.5) !important;
+}
+
+.light-theme-blur::after {
+  background: linear-gradient(
+    90deg,
+    rgba(100, 100, 100, 0) 0%,
+    rgba(100, 100, 100, 0.7) 50%,
+    rgba(100, 100, 100, 0) 100%
+  ) !important;
+}

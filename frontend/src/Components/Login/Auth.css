@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* LoginPage.css */
+
+/* Main container with full height */
+.login-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Content area (everything except footer) */
+.login-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Logo styling */
+.logo-container {
+  margin-bottom: 30px;
+}
+
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* For demo only - replace with your actual logo */
+.logo-placeholder {
+  background-color: #2563eb;
+  border-radius: 8px;
+}
+
+/* Login box styling */
+.login-box {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 400px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 24px 0;
+}
+
+/* Login options section */
+.login-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Button styling */
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  width: 100%;
+}
+
+.login-btn:hover {
+  transform: translateY(-1px);
+}
+
+.login-btn:active {
+  transform: translateY(1px);
+}
+
+/* GitHub button */
+.github-btn {
+  background-color: #f6f8fa;
+  color: #24292e;
+  border: 1px solid #d1d5db;
+}
+
+.github-btn:hover {
+  background-color: #ebeef2;
+}
+
+/* GitLab button */
+.gitlab-btn {
+  background-color: #fff;
+  color: #171321;
+  border: 1px solid #d1d5db;
+}
+
+.gitlab-btn:hover {
+  background-color: #faf5ff;
+}
+
+/* Icon styling */
+.auth-btn-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  fill: currentColor;
+}
+
+/* Error message styling */
+.error-message {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Policy text styling */
+.policy-text {
+  font-size: 13px;
+  color: #64748b;
+  margin: 24px 0;
+}
+
+.policy-link {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.policy-link:hover {
+  text-decoration: underline;
+}
+
+/* Signup section */
+.signup-container {
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-text {
+  color: #64748b;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.signup-link {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer styling */
+.login-footer {
+  background-color: white;
+  border-top: 1px solid #e5e7eb;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.footer-link {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: #4b5563;
+}
+
+.footer-divider {
+  color: #d1d5db;
+}
+
+.copyright {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .login-box {
+    padding: 24px 20px;
+  }
+  
+  .login-title {
+    font-size: 22px;
+  }
+  
+  .login-btn {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+}
+
+/* ----------- end here ------------- */
+
+
+.logo-container {
+  width: 100% !important;
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 16px;
+}
+
+.input-box {
+  width: 80%;
+  max-width: 380px;
+  padding: 10px 10px 10px 0px;
+  border: none;
+  border-bottom: 1px solid var(--lightgrey);
+  margin-bottom: 15px;
+  font-size: 0.8rem;
+  padding-right: 40px;
+  background-color: #f6f8fa;
+}
+
+.input-box:focus-visible {
+  outline: none;
+}
+
+
+input::placeholder {
+  letter-spacing: 1.2px;
+}
+
+
+/* Buttons */
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 353px;
+  background-color: var(--white);
+  color: var(--blue);
+  padding: 10px 0px;
+  /* font-size: 24px; */
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid var(--lightgrey);
+}
+
+
+.login-btn a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--blue);
+}
+
+.login-btn::before {
+  content: "";
+  position: absolute;
+}
+
+.login-btn:hover {
+  color: var(--darkgray);
+  /* border: 1px solid var(--darkgray); */
+  background-color: rgba(245, 245, 245, 0.9);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+.auth-btn-logo {
+  margin-right: 20px;
+  height: 20px;
+}
+
+/* Links and Policies */
+.policy-text {
+  font-size: 12px;
+  color: var(--black);
+  margin: 0;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid var(--lightgrey);
+}
+
+.policy-text a {
+  text-decoration: none;
+  color: var(--blue);
+}
+
+.policy-text a {
+  text-decoration: underline;
+}
+
+.signup-text {
+  font-size: 12px;
+  color: var(--darkgray);
+  margin: 10px 0 0 0;
+}
+
+.signup-text a {
+  font-size: 18px;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+.signup-text span {
+  font-size: 18px;
+  color: var(--darkgray);
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.toggle-password-btn {
+  position: absolute;
+  top: 42%;
+  right: 0px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #c3c3c3;
+  /* Change to your preferred color */
+  font-size: 1.2rem;
+  /* Adjust size of the icon */
+  outline: none;
+}
+
+.toggle-password-btn:hover {
+  color: #000;
+  /* Optional hover effect */
+}
+
+.error-message {
+  color: #ff4d4f;
+  /* Bright red for visibility */
+  background-color: #ffecec;
+  /* Light red background for emphasis */
+  border: 1px solid #ff4d4f;
+
+  /* Add some padding for spacing */
+  margin-top: 15px;
+  /* Space above the message */
+  text-align: left;
+  border-radius: 5px;
+  /* Rounded corners for modern look */
+  font-size: 0.85rem;
+  /* Slightly smaller font */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
+  max-width: 350px;
+}
+
+.success-message {
+  color: hsl(120, 100%, 30%);
+  /* Dark green text */
+  background-color: hsl(120, 100%, 90%);
+  /* Light green background */
+  border: 1px solid hsl(120, 100%, 40%);
+  /* Medium green border */
+  padding: 10px;
+  /* Add some padding for spacing */
+  margin-top: 15px;
+  /* Space above the message */
+  border-radius: 5px;
+  /* Rounded corners for modern look */
+  font-size: 0.95rem;
+  /* Slightly smaller font */
+  text-align: center;
+  /* Center align the message */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
+}
+
+.copyright {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-link {
+  color: #4b5563;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.footer-divider {
+  color: #d1d5db;
+  margin: 0 40px;
+  font-size: 14px;
+}

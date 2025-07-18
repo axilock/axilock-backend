@@ -1,0 +1,17 @@
+version: '3.8'
+
+# Development configuration override
+# Usage: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+  frontend:
+    build:
+      args:
+        # Use the mock API URL in development
+        REACT_APP_API_BASE_URL: ${API_BASE_URL:-http://mock-api:5000/}
+    environment:
+      - NODE_ENV=development
+    # Enable hot-reloading for development
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public

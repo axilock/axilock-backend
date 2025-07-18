@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # API base URL - can be overridden with environment variable
+        REACT_APP_API_BASE_URL: ${API_BASE_URL:-https://api.axilock.ai/v1/}
+    image: axilock-frontend:${TAG:-latest}
+    container_name: axilock-frontend
+    ports:
+      # Map container port 80 to host port 8080 (can be changed as needed)
+      - "${PORT:-8080}:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    
