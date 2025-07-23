@@ -91,6 +91,12 @@ type getUserResponse struct {
 	Orgstats orgstats `json:"orgstats"`
 }
 
+// GetUserDetails returns the user details
+// @Summary Get User Details
+// @Tags User
+// @Produce json
+// @Success 200 {object} getUserResponse
+// @Router /api/v1/user/details [get]
 func (s *Server) GetUserDetails(ctx fiber.Ctx) error {
 	// var req getUserRequest
 	// if err := ctx.ShouldBindJSON(&req); err != nil {
@@ -146,6 +152,12 @@ type cliAuthRequest struct {
 	Code     string `json:"code" validate:"required"`
 }
 
+// InitCliAuth returns the user details
+// @Summary Init Cli Auth
+// @Tags User
+// @Produce json
+// @Success 200 {object} successResponse
+// @Router /api/v1/user/cli-auth [post]
 func (s *Server) InitCliAuth(ctx fiber.Ctx) error {
 	var req cliAuthRequest
 	if err := ctx.Bind().Body(&req); err != nil {
@@ -174,6 +186,12 @@ type updateApiResp struct {
 	BinaryUrl string `json:"binary_url"`
 }
 
+// UpdateClient returns the latest binary url
+// @Summary Update Client
+// @Tags User
+// @Produce json
+// @Success 200 {object} updateApiResp
+// @Router /api/v1/user/update-client [post]
 func (s *Server) UpdateClient(ctx fiber.Ctx) error {
 	var req updateReq
 	if err := ctx.Bind().Body(&req); err != nil {
@@ -209,6 +227,12 @@ type DiscordWebhook struct {
 	Content string `json:"content"`
 }
 
+// Inbound returns the discord webhook
+// @Summary API to send user intent to onboard
+// @Tags User
+// @Produce json
+// @Success 200 {object} successResponse
+// @Router /api/v1/user/inbound [post]
 func (s *Server) Inbound(ctx fiber.Ctx) error {
 	var req inboundReq
 	if err := ctx.Bind().Body(&req); err != nil {
@@ -232,6 +256,12 @@ func (s *Server) Inbound(ctx fiber.Ctx) error {
 	return ctx.Redirect().To("https://cal.com/axilock/support?email=" + req.Email)
 }
 
+// GetUserCoverage returns the user coverage
+// @Summary Get User Coverage
+// @Tags User
+// @Produce json
+// @Success 200 {object} aletReponse
+// @Router /api/v1/user/coverage [get]
 func (s *Server) GetUserCoverage(ctx fiber.Ctx) error {
 	user, err := s.getUserFromContext(ctx)
 	if err != nil {

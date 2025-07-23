@@ -53,7 +53,14 @@ func (c *PrComment) createRepoandOrg(ctx context.Context, ghevent github.PushEve
 	if err != nil {
 		return 0, 0, fmt.Errorf("cannot process event %v", err)
 	}
-	org, err := c.GithubSvc.GetVCSInstallationID(ctx, ghevent.GetOrganization().GetID())
+	var orgID int64
+
+	if ghevent.GetRepo().GetOwner().GetType() == "Organization" {
+		orgID = ghevent.GetOrganization().GetID()
+	} else if ghevent.GetRepo().GetOwner().GetType() == "User" {
+		orgID = ghevent.GetRepo().GetOwner().GetID()
+	}
+	org, err := c.GithubSvc.GetVCSInstallationID(ctx, orgID)
 	if err != nil {
 		if axierr.Is(err, axierr.ErrRecordNotFound) {
 			log.Error().Err(err).Msg("cannot find org")

@@ -81,6 +81,12 @@ func (s *Server) GithubLoginURL(ctx fiber.Ctx) error {
 	return ctx.Redirect().To(gh.GetGithubAuthEndpoint(s.config))
 }
 
+// GithubLogin returns the github login url
+// @Summary Github Login
+// @Tags Github
+// @Produce json
+// @Success 200 {object} string
+// @Router /api/v1/github/login [post]
 func (s *Server) GithubLogin(ctx fiber.Ctx) error {
 	var req GithubCallbackResp
 	if err := ctx.Bind().Body(&req); err != nil {

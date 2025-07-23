@@ -2,7 +2,6 @@ package clientrpc
 
 import (
 	"context"
-	"crypto/sha1"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -41,7 +40,7 @@ type ApiResponse struct {
 }
 
 func (s *ClientService) ClientUpdateRpc(ctx context.Context, req *clientpb.ClientUpdateRequest) (*clientpb.ClientUpdateResponse, error) {
-	token, _ := s.Services.Tokensvc.GetClientUpdateCache(ctx, fmt.Sprintf("%x", sha1.Sum(fmt.Appendf(nil, "%s%s%s", req.Os.String(), req.Arch.String(), req.Environment.String()))))
+	token, _ := s.Services.Tokensvc.GetClientUpdateCache(ctx, fmt.Sprintf("%x", fmt.Appendf(nil, "%s-%s-%s", req.Os.String(), req.Arch.String(), req.Environment.String())))
 	if token != "" {
 		var apiresp ApiResponse
 		err := json.Unmarshal([]byte(token), &apiresp)
@@ -79,7 +78,7 @@ func (s *ClientService) ClientUpdateRpc(ctx context.Context, req *clientpb.Clien
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "cannot get updated client ver")
 	}
-	_ = s.Services.Tokensvc.SetClientUpdateCache(ctx, fmt.Sprintf("%x", sha1.Sum(fmt.Appendf(nil, "%s%s%s", req.Os.String(), req.Arch.String(), req.Environment.String()))), string(body))
+	_ = s.Services.Tokensvc.SetClientUpdateCache(ctx, fmt.Sprintf("%x", fmt.Appendf(nil, "%s-%s-%s", req.Os.String(), req.Arch.String(), req.Environment.String())), string(body))
 	response := &clientpb.ClientUpdateResponse{}
 	if req.GetClientVer() == apiresp.Version {
 		response.ToUpdate = false

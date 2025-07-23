@@ -126,6 +126,13 @@ type commitResponse struct {
 	Data any `json:"data"`
 }
 
+// GetCommitsHealth returns the health of commits
+// @Summary Get Commits Health
+// @Tags Commits
+// @Produce json
+// @Success 200 {object} commitResponse
+// @Router /api/v1/commits/health [get]
+
 func (s *Server) GetCommitsHealth(ctx fiber.Ctx) error {
 	user, err := s.getUserFromContext(ctx)
 	if err != nil {
@@ -141,6 +148,12 @@ func (s *Server) GetCommitsHealth(ctx fiber.Ctx) error {
 	return ctx.JSON(resp)
 }
 
+// GetAlertSecretTypeCount returns the count of alerts by secret type
+// @Summary Get Alert Secret Type Count
+// @Tags Alerts
+// @Produce json
+// @Success 200 {object} aletReponse
+// @Router /api/v1/alerts/secret-type-count [get]
 func (s *Server) GetAlertSecretTypeCount(ctx fiber.Ctx) error {
 	user, err := s.getUserFromContext(ctx)
 	if err != nil {
